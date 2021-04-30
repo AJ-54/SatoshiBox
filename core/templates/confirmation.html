@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class='container cnt'>
+
+    <h2>Your Payment Status is under process</h2>
+    <center>
+        <div class="input-group py-4 product">
+            <div class="input-group-prepend proName">
+                <span class="input-group-text">Product Name</span>
+            </div>
+            <input class="form-control proName" aria-label="Product Name" readonly
+                value="{{payment.product.product_name}}">
+        </div>
+    </center>
+
+
+    <h2>After we confirm payment status, you can download files from this page!</h2>
+    <center>
+        <div class="input-group clipboard">
+            <input type="text" class="form-control xyz" value="{{download_uri}}" placeholder="Some path" id="copy-input"
+                readonly>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">
+                    <button class="btn copy-btn" onclick="copy(event)">
+                        <img src="{% static 'svg/copy.png' %}" width=28px height=28px alt="Copy to clipboard">
+                    </button>
+                    <span id="copy-content">Copy to clipboard</span>
+
+                </span>
+            </div>
+        </div>
+    </center>
+
+
+
+
+
+
+
+</div>
+{%csrf_token%}
+{% endblock content %}
+{% block js %}
+<script type="text/javascript" src="{% static 'js/copy.js' %}"></script>
+{% endblock js %}

@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class='container'>
+
+    <div class="bitadd" style="
+        display: flex;
+        justify-content: space-between;
+        align-items: center;">
+        <div>
+            <h3>Bitcoin Address</h3>
+        </div>
+        <div class="input-group inp">
+            <input type="text" class="form-control" value="{{address}}" placeholder="Some path" id="copy-input"
+                readonly>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">
+                    <button class="btn copy-btn" onclick="copy(event)">
+                        <img src="{% static 'svg/copy.png' %}" width=28px height=28px alt="Copy to clipboard">
+                    </button>
+                    <span id="copy-content">Copy to clipboard</span>
+
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="head" style="
+        display: flex;
+        justify-content: left;
+        align-items: center;">
+        <div>
+            <h3>{{crypto}} Price</h3>
+        </div>
+        <div class="input-group inp2">
+            <input type="text" class="form-control" value="{{expected_value}}" placeholder="Some path" readonly>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">
+                    <button class="btn copy-btn" onclick="copy(event)">
+                        <img src="{% static 'svg/copy.png' %}" width=28px height=28px alt="Copy to clipboard">
+                    </button>
+                    <span>Copy to clipboard</span>
+
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <center>
+        <div class="QR">
+            <a href="bitcoin:{{address}}?amount={{expected_value}}">
+                <img
+                    src="https://www.bitcoinqrcodemaker.com/api/?style=bitcoin&address={{address}}&amount={{expected_value}}&color=1">
+            </a>
+        </div>
+    </center>
+
+
+    <p class="lastline mt-4" id="time">
+    </p>
+    <p class="lastline" id="bottom_line">Transfer the mentioned amount of {{crypto}} on the given address to
+        complete the
+        purchase</p>
+
+</div>
+{% csrf_token %}
+
+{% endblock %}
+{% block js %}
+
+<script type="text/javascript" id="data_script">
+    var address = "{{address}}";
+    var url = "{% url 'core:payment_processed_buyer' %}";
+    var payment_id = "{{payment_id}}";
+</script>
+<script type="text/javascript">
+    var accept_payments = true;
+    var last_order = "{{last_order}}"
+</script>
+<script type="text/javascript" src="{% static 'js/timer.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/loaddata.js' %}"></script>
+<script>
+    window.onload = function () {
+        loadData();
+        var tenMinutes = 60 * 10,
+            display = document.querySelector('#time');
+        startTimer(tenMinutes, display);
+    }
+</script>
+<script type="text/javascript" src="{% static 'js/paymentSocket.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/copy.js' %}"></script>
+{% endblock %}
