@@ -1,5 +1,4 @@
 .copy-bar {
-    width: 82%;
     text-align: center;
 }
 
@@ -8,7 +7,6 @@
 }
 
 .send-mail--head {
-    font-size: 34px;
     text-align: left;
     color:white;
 }
