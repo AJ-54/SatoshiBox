@@ -26,7 +26,7 @@ textarea{
 }
 
 .file::after {
-    content: 'Drag & Drop (Max Size 5 MB)';
+    content: 'Drag and Drop or Click to Upload (Only One File of Max Size 5 MB)';
     position: absolute;
     color: #808080;
     font-size: 20px;
