@@ -137,6 +137,7 @@ class ProductPublicView(HitCountDetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ProductPublicView, self).get_context_data(**kwargs)
+        context["usd_price"] = str(self.object.price)
         context["btc_price"] = str(
             exchanged_rate(self.object.price, "BTC", self.object.currency)
         )[:6]

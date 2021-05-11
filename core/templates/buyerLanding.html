@@ -13,10 +13,10 @@
     <p class='mt-1'>{{object.product_description}}</p>
   </div>
 
+  <h5 class='text-left'>Price</h5>
   <div class='row'>
     <div class='col-12  input-group'>
-      <span class="input-group-text mr-3">BTC {{btc_price}}</span>
-      <span class="input-group-text">$ {{btc_price}}</span>
+      <span class="input-group-text"> {{btc_price}} BTC ≈ {{usd_price}} USD</span>
       <div class='float-to-right'>
         <button type="submit" id='submitbtn' class="btn"><a href="{% url 'core:product_pay_buyer' object.uid%}?crypto=BTC"
           style="text-decoration:none;color:black;">I want this! </a></button>
