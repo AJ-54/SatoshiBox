@@ -11,6 +11,10 @@
     color:white;
 }
 
+.btn-rounded {
+    border-radius: 0px 3px 3px 0px !important;
+}
+
 .send {
     border-style: outset;
     border-width: 2px;
@@ -31,9 +35,9 @@
 }
 
 #submitbtn{
-    width: 30%;
+    min-width: 10rem !important;
     border-radius: 12px;
     background-color: #f0b356;
     color: black;
-    font-size: 22px !important;
+    font-size: 20px !important;
 }
