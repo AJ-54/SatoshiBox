@@ -5,6 +5,12 @@
     color: black;
     font-size: 20px !important;
     float: right;
+    position: relative;
+}
+
+.float-to-right{
+    margin-left: auto; 
+    margin-right: 0;
 }
 
 /* page3 */
@@ -46,8 +52,6 @@ h4 {
     margin: 30px 0 0;
     height: 150px;
     background-color: #fff;
-    width: 70%;
-    
 }
 
 /* page5 */
@@ -91,10 +95,6 @@ h2, h3 {
 .clipboard {
     margin-top: 50px;
     width: 85%;
-}
-
-.product {
-    width: 70%;
 }
 
 /* page7 */
