@@ -1,8 +1,5 @@
 .foot {
     text-align: center;
     color: #fff;
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+    height: 2rem;
 }
