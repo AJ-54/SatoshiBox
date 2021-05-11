@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+<div class='container cnt'>
+  <center>
+    <div class="input-group py-4 product">
+      <div class="input-group-prepend proName">
+        <span class="input-group-text">Product Name</span>
+      </div>
+      <input class="form-control proName" aria-label="Product Name" value="{{object.product_name}}" readonly>
+    </div>
+
+    <div class="description">
+      <p>Description</p>
+      <p>{{object.product_description}}</p>
+    </div>
+
+    <div class="row justify-content-around product">
+
+
+      <button type="submit" id='submitbtn' class="btn"><a href="{% url 'core:product_pay_buyer' object.uid%}?crypto=BTC"
+          style="text-decoration:none;color:black;">Buy in BTC - {{btc_price}}</a></button>
+      {% comment %} <button type="submit" id='submitbtn' class="btn"><a
+          href="{% url 'core:product_pay_buyer' object.uid%}?crypto=BCH" style="text-decoration:none;color:black;">Buy
+          in BCH -
+          {{bch_price}}</a></button> {% endcomment %}
+    </div>
+
+  </center>
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+{% load hitcount_tags %}
+{% block content %}
+
+
+
+<div class='container cnt'>
+  <h2 class='p-4'>Payment Dashboard</h2>
+  <div class="input-group copy-bar">
+    <input type="text" class="form-control" value="{{public_uri}}" placeholder="Some path" id="copy-input" readonly>
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="">
+        <button class="btn copy-btn" onclick="copy(event)">
+          <img src="{% static 'svg/copy.png' %}" width=28px height=28px alt="Copy to clipboard">
+        </button>
+        <span id="copy-content">Copy to clipboard</span>
+
+      </span>
+    </div>
+  </div>
+
+  <div class="input-group py-4">
+    <div class="input-group-prepend proName">
+      <span class="input-group-text">Product Name</span>
+    </div>
+    <input class="form-control proName" aria-label="Product Name" readonly value="{{object.product_name}}">
+  </div>
+
+  <div class="pymnt-list">
+    <p style="font-weight: bold;">Payments so far...</p>
+    {% for payment in payments %}
+    <p>{{payment.crypto}} - {{payment.received_value}}</p>
+    {% endfor %}
+  </div>
+
+  <div class="counts">
+    <div class="row justify-content-center">
+
+    </div>
+
+    <div class="row justify-content-around">
+      <div class="col-4 count1" style="margin-bottom: 20px;">
+        <h4>Number of Product views</h4>
+        <span>{% get_hit_count for object %}</span>
+      </div>
+      <div class="col-4 count1" style="margin-bottom: 20px;">
+        <h4>Net BTC Balance</h4>
+        <span>{{btc_balance}}</span>
+      </div>
+      {% comment %} <div class="col-4 count1">
+        <h4>Net BCH Balance</h4>
+        <span>{{bch_balance}}</span>
+      </div> {% endcomment %}
+    </div>
+
+  </div>
+
+  <button type="button" id='submitbtn' class='btn'>Withdraw</button>
+
+
+
+</div>
+{% endblock content %}
+{% block js %}
+<script type="text/javascript" src="{% static 'js/copy.js' %}"></script>
+{% endblock js %}

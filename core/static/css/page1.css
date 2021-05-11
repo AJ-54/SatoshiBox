@@ -1,0 +1,110 @@
+#submitbtn{
+    max-width: 400px;
+    border-radius: 12px;
+    background-color: #f0b356;
+    color: black;
+    font-size: 22px !important;
+    margin-top: 35px;
+}
+
+/* page3 */
+
+.proName {
+    height: 45px;
+}
+
+.pymnt-list {
+    background-color: #fff;
+    height: 100px;
+    overflow-y: scroll;
+    text-align: left;
+    margin-top: 20px;
+}
+
+p {
+    color: #000;
+    margin: 5px;
+    text-align: left;
+}
+
+.counts {
+    margin-top: 20px;
+}
+
+.count1 {
+    background-color: #fff;
+    color: black;
+}
+
+h4 {
+    color: black;
+}
+
+/* page4 */
+
+.description {
+    margin: 30px 0 0;
+    height: 150px;
+    background-color: #fff;
+    width: 70%;
+    
+}
+
+/* page5 */
+
+.bitadd {
+    margin: 40px 0 0;
+}
+
+.inp {
+    width: 80%;
+}
+
+.inp2 {
+    width: 45%;
+    margin-left: 5rem;
+}
+
+.head {
+    padding-left: 30px;
+}
+
+.QR {
+    background-color: #fff;
+    width: 280px;
+    margin: 10px 0 40px;
+}
+
+.lastline {
+    font-size: 26px;
+    color: #fff;
+    text-align: center;
+}
+
+
+/* page6 */
+
+h2, h3 {
+    margin: 30px 0;
+}
+
+.clipboard {
+    margin-top: 50px;
+    width: 85%;
+}
+
+.product {
+    width: 70%;
+}
+
+/* page7 */
+
+.url {
+    background-color: #E9ECEF;
+}
+
+.url p {
+    margin-top: 15px;
+    font-weight: 500;
+    font-size: 17px;
+}

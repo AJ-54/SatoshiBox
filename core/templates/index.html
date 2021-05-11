@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<form class='container' method="POST" enctype="multipart/form-data" action="{% url 'core:product_create_view' %}">
+    {% csrf_token %}
+    <h2 class='p-4'>Sell Files Anonymously and Receive Payments in BTC/BCH!</h2>
+
+    <div class="input-group py-4">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Product Name</span>
+        </div>
+        <input class="form-control" aria-label="Product Name" name="product_name" required>
+    </div>
+
+    <div class='row'>
+        <div class='col-6 pr-4'>
+            <textarea class='form-control' style="background-color: white;" name="product_description" required
+                placeholder="Product Description"></textarea>
+        </div>
+        <div id='file-upload' class='col-6 pl-4'>
+            <input class="file" type="file" name="files" id="file" multiple required>
+            <span id="value"></span>
+            <p id="size"></p>
+        </div>
+    </div>
+
+    <div class='row'>
+        <div class='col-6 pr-4 py-2'>
+            <input class='form-control' style="background-color: white;" placeholder="Product Price in Fiat"
+                name="price" required>
+        </div>
+        <div class='col-6 pl-4 py-2'>
+            <select class="form-select" id="currencyList" aria-label="Product Currency" name="currency">
+                {% include 'template_tags/currency_options.html' %}
+            </select>
+        </div>
+    </div>
+    <button type="submit" id='submitbtn' class='btn'>Start Selling</button>
+
+</form>
+
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+{% endblock %}
