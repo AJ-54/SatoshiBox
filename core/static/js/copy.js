@@ -1,10 +1,13 @@
 function copy(event) {
-    var target = event.target || event.srcElement;
-    var copyText = target.parentElement.parentElement.parentElement.parentElement.children[0];
+    const copyText = document.getElementById("copy-input");
+  
+    /* Select the text field */
     copyText.select();
-    copyText.setSelectionRange(0, 99999);
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+  
+    /* Copy the text inside the text field */
     document.execCommand("copy");
-
-    var tooltip = target.parentElement.parentElement.children[1];
-    tooltip.innerHTML = "Copied"
-  }
+  
+    const tooltip = document.getElementById("copy-content");
+    tooltip.innerHTML = "Copied to Clipboard";
+}
