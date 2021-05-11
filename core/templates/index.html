@@ -6,11 +6,29 @@
     {% csrf_token %}
     <h2>Sell Files Anonymously and Receive BTC or BCH!</h2>
 
-    <div class="input-group px-3">
-        <input class="form-control" aria-label="Product Name" name="product_name" placeholder="Product Name" required>
+    <div class='row'>
+        <div class='col-8'>
+            <h5 class='text-left'>Product Name</h5>
+            <div class="input-group">
+                <input class="form-control" aria-label="Product Name" name="product_name" placeholder="Product Name" required>
+            </div>
+        </div>
+        <div class='col-4'>
+            <h5 class='text-left'>Price</h5>
+            <div class='input-group'>
+                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        USD
+                    </span>                    
+                </div>
+                <input class='form-control' style="background-color: white;" placeholder="Price"
+                    name="price" required>
+            </div>
+        </div>
     </div>
 
-    <div class='p-3'>
+    <h5 class='text-left pt-4'>Product Description</h5>
+    <div class='pb-3'>
         <textarea class='form-control' style="background-color: white;" name="product_description" required
             placeholder="Product Description"></textarea>
         <div id='file-upload'>
@@ -19,27 +37,11 @@
             <p id="size"></p>
         </div>
     </div>
-
-    <div class="input-group px-3 pb-3">
+    <h5 class='text-left'>Bitcoin Address</h5>
+    <div class="input-group pb-3">
         <input class="form-control" aria-label="Product Name" name="product_name" placeholder="Bitcoin Address" required>
     </div>
-
-    <div class='row px-3'>
-        <div class='col-4 input-group'>
-            <div class="input-group-prepend">
-                <span class="input-group-text">
-                    $
-                </span>                    
-            </div>
-            <input class='form-control' style="background-color: white;" placeholder="Price"
-                name="price" required>
-        </div>
-        <div class='col-8'>
-            <button type="submit" id='submitbtn' class='btn'>Start Selling</button>
-        </div>
-    </div>
-
-
+    <button type="submit" id='submitbtn' class='btn'>Start Selling</button>
 </form>
 
 {% endblock %}
