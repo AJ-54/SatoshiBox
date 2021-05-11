@@ -158,14 +158,14 @@ class IntializePayment(generic.View):
 
         address, expected_value, payment = None, None, None
         try:
-            address = request.session.get("payment")["address"]
-            expected_value = request.session.get("payment")["expected_value"]
+            address = request.session["payment"]["address"]
+            expected_value = request.session["payment"]["expected_value"]
             payment = get_object_or_404(
-                Payment, pk=int(request.session.get("payment")["payment_id"])
+                Payment, pk=int(request.session["payment"]["payment_id"])
             )
             check_session_validity(request, product)
         except (ValueError, Http404, KeyError) as e:  # invalid session
-            payment = create_payment_helper(request, product, crypto)
+            payment, address, expected_value = create_payment_helper(request, product, crypto)
         except requests.exceptions.RequestException as e:  # Exception at blockonomics api
             return HttpResponse(e.response.text)
         except Exception as e:
@@ -178,7 +178,7 @@ class IntializePayment(generic.View):
             "product": product.pk,
             "payment_id": payment.id,
         }
-
+        request.session.modified = True 
         context = {
             "address": address,
             "expected_value": expected_value,

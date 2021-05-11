@@ -88,4 +88,4 @@ def create_payment_helper(request, product, crypto):
         address=address, expected_value=expected_value, crypto=crypto, product=product
     )
     request.session["last_order"] = datetime.now().timestamp()
-    return payment
+    return payment, address, expected_value
