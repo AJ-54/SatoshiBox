@@ -9,22 +9,24 @@
 {% block content %}
 
 <div class='container mt-5'>
-    <h3 class='send-mail--head py-0'>Your Product is now live at:</h3>
-    <div class="input-group copy-bar rounded">
-        <input type="text" class="form-control rounded-left" value="{{public_uri}}" placeholder="Some path" id="copy-input"
-            readonly>
-            <button class="btn btn-rounded" onclick="copy(event)">
-                <span id="copy-content">Copy to Clipboard</span>
-                <img src="{% static 'svg/copy.png' %}" width=28px height=28px alt="Copy to clipboard">
-            </button>
+    <h1 class='p-4'>Your Product is now live at:</h1>
+    <div class='d-flex justify-content-center'>
+        <div class="input-group copy-bar rounded col-11">
+            <input type="text" class="form-control rounded-left " value="{{public_uri}}" placeholder="Some path" id="copy-input"
+                readonly>
+                <button class="btn btn-rounded" onclick="copy(event)">
+                    <span id="copy-content">Copy to Clipboard</span>
+                    <img src="{% static 'svg/copy.png' %}" width=28px height=28px alt="Copy to clipboard">
+                </button>
 
+        </div>
     </div>
 
     <div class="send-mail py-4">
-        <h5 class="send-mail--head py-1">
+        <h3 class="py-1">
             Enter your email address below to receive updates on payments and
             to withdraw received funds
-        </h5>
+        </h3>
         <div class="">
             <form class="input-group copy-bar" method="POST" action="{% url 'core:product_seller_email_updates'%}">
                 {% csrf_token %}
