@@ -3,6 +3,10 @@ body{
     color: white;
     text-align: center;
 }
+.container{
+    min-height: calc(100vh - 4rem - 80px);
+}
+
 textarea{
     height: 140px;
 }
