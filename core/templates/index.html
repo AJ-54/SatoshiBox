@@ -31,13 +31,14 @@
     <div class='pb-3'>
         <textarea class='form-control' style="background-color: white;" name="product_description" required
             placeholder="Product Description"></textarea>
-        <div id='file-upload'>
-            <input class="file" type="file" name="files" id="file" multiple required>
-            <span id="value"></span>
-            <p id="size"></p>
-        </div>
     </div>
-    <button type="submit" id='submitbtn' class='btn'>Start Selling</button>
+    <h5 class='text-left'>Upload Files</h5>
+    <div id='file-upload'>
+        <input class="file p-2" type="file" name="files" id="file" multiple required>
+        <span id="value"></span>
+        <p id="size"></p>
+    </div>
+    <button type="submit" id='submitbtn' class='btn mt-3'>Start Selling</button>
 </form>
 
 {% endblock %}

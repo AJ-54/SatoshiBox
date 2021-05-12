@@ -9,5 +9,11 @@ function copy(event) {
     document.execCommand("copy");
   
     const tooltip = document.getElementById("copy-content");
+
+    let element = event.target;
+    while (element.tagName != 'BUTTON') {
+        element = element.parentNode;
+    }
+    element.style.backgroundColor = "#f0b356";
     tooltip.innerHTML = "Copied to Clipboard";
 }
