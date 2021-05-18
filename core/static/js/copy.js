@@ -17,3 +17,21 @@ function copy(event) {
     element.style.backgroundColor = "#f0b356";
     tooltip.innerHTML = "Copied to Clipboard";
 }
+
+function specificCopy(textToCopy, elementID) { 
+    const el = document.createElement('textarea');
+    el.value = textToCopy;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+
+    const stringToChangeBackTo = document.getElementById(elementID).textContent;
+    const elementToChange = document.getElementById(elementID);
+    elementToChange.textContent = "Copied to Clipboard";
+    setTimeout(() => { 
+        document.getElementById(elementID).textContent = stringToChangeBackTo;
+    }, 3000);
+}
+
+

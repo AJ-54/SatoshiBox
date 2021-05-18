@@ -2,3 +2,4 @@
 */*/__pycache__
 venv
 db.sqlite3
+core/migrations/0009_alter_product_currency.py

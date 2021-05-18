@@ -78,10 +78,26 @@ h4 {
     margin: 10px 0 40px;
 }
 
-.lastline {
-    font-size: 26px;
+.payment_message {
+    font-size: 1.25rem;
     color: #fff;
     text-align: center;
+}
+
+.click-to-try-again {
+    font-size: 1rem;
+    color: #fff;
+    text-align: center;
+}
+
+.timer {
+    font-size: 1rem;
+    color: #fff;
+    text-align: center;
+}
+
+.cursor-pointer {
+    cursor: pointer !important;
 }
 
 

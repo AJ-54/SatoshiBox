@@ -1,4 +1,3 @@
-var bottom_line = document.querySelector('#bottom_line');
 let intervalId;
 
 function startTimer(duration, display) {
@@ -23,14 +22,17 @@ function startTimer(duration, display) {
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        display.textContent = minutes + " minutes " + seconds+ " seconds"; 
+        document.getElementById("progressBar").value = 600 - (600 - diff);
+
+        display.textContent = minutes + ":" + seconds + " min"; 
 
         if(diff<=0)
         {
             display.style.color="red";
             accept_payments=false;
-            bottom_line.textContent = "Please refresh the page to initiate payment again if you have already paid ,please wait till payment is processed"; 
             clearInterval(intervalId);
+            document.getElementById("bnomics-order-expired-wrapper").style.display = "block";
+            document.getElementById("bnomics-order-wrapper").style.display = "none";
         }    
     }
     timer();

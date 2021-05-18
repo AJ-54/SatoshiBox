@@ -1,69 +1,35 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class='container'>
+<div class='container py-5'>
 
-    <div class="bitadd" style="
-        display: flex;
-        justify-content: space-between;
-        align-items: center;">
-        <div>
-            <h3>Bitcoin Address</h3>
-        </div>
-        <div class="input-group inp">
-            <input type="text" class="form-control" value="{{address}}" placeholder="Some path" id="copy-input"
-                readonly>
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="">
-                    <button class="btn copy-btn" onclick="copy(event)">
-                        <img src="{% static 'svg/copy.png' %}" width=28px height=28px alt="Copy to clipboard">
-                    </button>
-                    <span id="copy-content">Copy to clipboard</span>
+    <div class='row py-5 d-flex justify-content-center'>
+            <span>
+                <a href="bitcoin:{{address}}?amount={{expected_value}}">
+                    <img height="240px" width="240px"
+                        src="https://www.bitcoinqrcodemaker.com/api/?style=bitcoin&address={{address}}&amount={{expected_value}}&color=1">
+                </a>
+            </span>
 
-                </span>
-            </div>
-        </div>
+            <span class="col-xl-5 col-md-8 col-12">
+                <div id="bnomics-order-wrapper">
+                    <p class="payment_message" id="amount_text">To pay, send exactly this {{crypto}} amount</p>
+                    <h3 class="payment_message cursor-pointer text-truncate" onclick="specificCopy('{{expected_value}}', 'amount_text')" >{{expected_value}} {{crypto}} ≈ {{usd_price}} USD</h3>
+                    <p class="payment_message" id="address_text" >to this {{crypto}} address</p>
+                    <h3 class="payment_message cursor-pointer text-truncate" onclick="specificCopy('{{address}}', 'address_text')" >{{address}}</h3>
+                    <progress class='w-100' value="0" max="600" id="progressBar"></progress>
+                    <p class="timer" id="time"></p>    
+                </div>
+
+                <div style="display:none" id="bnomics-order-expired-wrapper" >
+                    <h3 class="warning bnomics-status-warning">Payment Expired</h3><br>
+                    <p class="click-to-try-again cursor-pointer"><a onClick="window.location.reload()">Click here to try again</a></p>
+                </div>
+
+            </span>
     </div>
-
-
-    <div class="head" style="
-        display: flex;
-        justify-content: left;
-        align-items: center;">
-        <div>
-            <h3>{{crypto}} Price</h3>
-        </div>
-        <div class="input-group inp2">
-            <input type="text" class="form-control" value="{{expected_value}}" placeholder="Some path" readonly>
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="">
-                    <button class="btn copy-btn" onclick="copy(event)">
-                        <img src="{% static 'svg/copy.png' %}" width=28px height=28px alt="Copy to clipboard">
-                    </button>
-                    <span>Copy to clipboard</span>
-
-                </span>
-            </div>
-        </div>
-    </div>
-
-    <center>
-        <div class="QR">
-            <a href="bitcoin:{{address}}?amount={{expected_value}}">
-                <img
-                    src="https://www.bitcoinqrcodemaker.com/api/?style=bitcoin&address={{address}}&amount={{expected_value}}&color=1">
-            </a>
-        </div>
-    </center>
-
-
-    <p class="lastline mt-4" id="time">
-    </p>
-    <p class="lastline" id="bottom_line">Transfer the mentioned amount of {{crypto}} on the given address to
-        complete the
-        purchase</p>
-
 </div>
+
 {% csrf_token %}
 
 {% endblock %}
