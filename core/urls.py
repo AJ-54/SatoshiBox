@@ -5,7 +5,7 @@ app_name = "core"
 urlpatterns = [
     path("", views.ProductCreateView.as_view(), name="product_create_view"),
     re_path(
-        r"^dashboad/(?P<token>[0-9a-f-]+)$",
+        r"^dashboard/(?P<token>[0-9a-f-]+)$",
         views.ProductSellerView.as_view(),
         name="product_info_seller",
     ),
