@@ -22,12 +22,15 @@
     height: 45px;
 }
 
+.btn-rounded {
+    border-radius: 0px 3px 3px 0px !important;
+}
+
 .pymnt-list {
     background-color: #fff;
-    height: 100px;
-    overflow-y: scroll;
+    height: 30vh;
+    overflow-y: auto;
     text-align: left;
-    margin-top: 20px;
 }
 
 p {
