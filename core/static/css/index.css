@@ -39,6 +39,13 @@ textarea{
     transform: translate(-50%, -50%);
 }
 
+@media only screen and (max-width: 767px) {
+    .file::after {
+        content: 'Tap to Upload Files';
+        left: auto;
+    }
+}
+
 #currencyList{
     width: 100%;
     height: 100%;

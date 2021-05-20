@@ -7,13 +7,13 @@
     <h2>Sell Files Anonymously and Receive BTC or BCH!</h2>
 
     <div class='row'>
-        <div class='col-8'>
+        <div class='col-12 col-md-8'>
             <h5 class='text-left'>Product Name</h5>
             <div class="input-group">
                 <input class="form-control" aria-label="Product Name" name="product_name" placeholder="Product Name" required>
             </div>
         </div>
-        <div class='col-4'>
+        <div class='col-12 col-md-4'>
             <h5 class='text-left'>Price</h5>
             <div class='input-group'>
                 <div class="input-group-prepend">
@@ -34,8 +34,8 @@
     </div>
     <h5 class='text-left'>Upload Files</h5>
     <div id='file-upload'>
-        <input class="file p-2" type="file" name="files" id="file" multiple required>
-        <span id="value"></span>
+        <input class="file p-2 hide-text" type="file" name="files" id="file" multiple required>
+        <p id="value"></p>
         <p id="size"></p>
     </div>
     <button type="submit" id='submitbtn' class='btn mt-3'>Start Selling</button>
