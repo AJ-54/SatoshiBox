@@ -11,12 +11,23 @@
                 </a>
             </span>
 
-            <span class="col-xl-5 col-md-8 col-12">
+            <div class="col-xl-5 col-md-8 col-12">
                 <div id="bnomics-order-wrapper">
-                    <p class="payment_message" id="amount_text">To pay, send exactly this {{crypto}} amount</p>
-                    <h3 class="payment_message cursor-pointer text-truncate" onclick="specificCopy('{{expected_value}}', 'amount_text')" >{{expected_value}} {{crypto}} ≈ {{usd_price}} USD</h3>
-                    <p class="payment_message" id="address_text" >to this {{crypto}} address</p>
-                    <h3 class="payment_message cursor-pointer text-truncate" onclick="specificCopy('{{address}}', 'address_text')" >{{address}}</h3>
+
+                    <p class="payment_message py-2">To pay, send exactly this {{crypto}} amount</p>
+
+                    <div class="cursor-pointer rounded bg-light text-dark mx-0 my-1 p-2" onclick="specificCopy('{{expected_value}}', 'amount_text')">
+                        <img class="float-right" src="{% static 'svg/copy.png' %}" width=30px height=30px alt="Copy to clipboard">
+                        <p class="h6 text-center" id="amount_text">{{expected_value}} {{crypto}} ≈ {{usd_price}} USD</p>
+                    </div>
+
+                    <p class="payment_message py-2" >to this {{crypto}} address</p>
+
+                    <div class="cursor-pointer rounded bg-light text-dark mx-0 my-1 p-2" onclick="specificCopy('{{address}}', 'address_text')">
+                        <img class="float-right" src="{% static 'svg/copy.png' %}" width=30px height=30px alt="Copy to clipboard">
+                        <p class="h6 text-center" id="address_text">{{address}}</p>
+                    </div>
+                    
                     <progress class='w-100' value="0" max="600" id="progressBar"></progress>
                     <p class="timer" id="time"></p>    
                 </div>
@@ -26,7 +37,7 @@
                     <p class="click-to-try-again cursor-pointer"><a onClick="window.location.reload()">Click here to try again</a></p>
                 </div>
 
-            </span>
+            </div>
     </div>
 </div>
 

@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-<form class='container' method="POST" enctype="multipart/form-data" action="{% url 'core:product_create_view' %}">
+<form class='container w-75' method="POST" enctype="multipart/form-data" action="{% url 'core:product_create_view' %}">
     {% csrf_token %}
     <h2>Sell Files Anonymously and Receive BTC or BCH!</h2>
 

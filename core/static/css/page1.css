@@ -99,6 +99,7 @@ h4 {
 
 .cursor-pointer {
     cursor: pointer !important;
+    word-wrap: break-word !important;
 }
 
 
