@@ -4,15 +4,10 @@ body{
     text-align: center;
 }
 .container{
-    min-height: calc(100vh - 4rem - 80px);
-}
-
-textarea{
-    height: 140px;
+    min-height: calc(100vh - 130px);
 }
 
 .file {
-    height: 50px;
     width: 100%;
     background: #ccc;
     border: 1px dashed #333;
@@ -33,7 +28,7 @@ textarea{
     content: 'Drag and Drop or Click to Upload (Max Size 5 MB)';
     position: absolute;
     color: #808080;
-    font-size: 20px;
+    font-size: 18px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

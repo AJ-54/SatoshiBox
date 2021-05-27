@@ -3,8 +3,12 @@
     border-radius: 12px;
     background-color: #f0b356;
     color: black;
-    font-size: 25px !important;
+    font-size: 20px !important;
     position: relative;
+}
+
+h6 {
+    font-size: 1.15rem;
 }
 
 .hide-text {
