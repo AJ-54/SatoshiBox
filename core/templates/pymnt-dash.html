@@ -5,16 +5,16 @@
 
 
 
-<div class='container cnt'>
-  <h2 class=''>{{object.product_name}} - Sales Overview</h2>
+<div class='container cnt col-12 col-sm-7'>
+  <h2 class='mb-3'>{{object.product_name}} - Sales Overview</h2>
 
   <h5 class='text-left'>Payments</h5>
 
-  <div class="pymnt-list rounded">
+  <textarea rows="4" class='form-control' readonly>
     {% for payment in payments %}
-    <p>{{payment.crypto}} - {{payment.received_value}}</p>
+      {{payment.crypto}} - {{payment.received_value}}
     {% endfor %}
-  </div>
+  </textarea>
 
   <h5 class='text-left mt-3'> Your Product is live at: </h5>
   <div class="input-group copy-bar">
@@ -25,25 +25,20 @@
     </button>
   </div>
 
-  <div class="counts">
-    <div class="row justify-content-center">
-
+  <div class="row justify-content-center my-2">
+    <div class="form-control col-10 col-md-5 count1 rounded m-2 text-left p-1" readonly>
+      <h5 class='mb-0'>Product views: {% get_hit_count for object %}</h5>
     </div>
-
-    <div class="row justify-content-center mb-3">
-      <div class="col-10 col-md-5 count1 rounded m-2 text-left p-2" >
-        <h5>Product views: {% get_hit_count for object %}</h5>
-      </div>
-      <div class="col-10 col-md-5 count1 rounded m-2 text-left p-2 " >
-        <h5>BTC Balance: {{btc_balance}}</h5>
-      </div>
-      {% comment %} <div class="col-4 count1">
-        <h5>BCH Balance</h5>
-        <span>{{bch_balance}}</span>
-      </div> {% endcomment %}
+    <div class="form-control col-10 col-md-5 count1 rounded m-2 text-left p-1" readonly>
+      <h5 class='mb-0'>BTC Balance: {{btc_balance}}</h5>
     </div>
-
+    {% comment %} <div class="col-4 count1">
+      <h5 class='mb-0'>BCH Balance</h5>
+      <span>{{bch_balance}}</span>
+    </div> {% endcomment %}
   </div>
+
+
 
   <button type="button" id='submitbtn' class='btn'>Withdraw Balance</button>
 
