@@ -12,6 +12,7 @@ You also need Django, django-hitcount and bootstrap-py. These can be installed b
 pip install django
 pip install django-hitcount
 pip install bootstrap-py
+pip install python-dotenv
 ```
 After you have installed the packages mentioned above nativate to your SatoshiBox folder with your terminal and run:
 ```

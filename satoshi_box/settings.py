@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv, find_dotenv
+
+load_dotenv(find_dotenv())
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'x0t0&-a*$((&08*bge6e@m^_a1vb*)a$_ikgatqwh#4+oi5f!!'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -123,10 +127,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
-BLOCKONOMICS_KEY="kdttXr0FPofE7o41OU4XnkrQcFy2AXxCRYRg4gxxYP8"
+BLOCKONOMICS_KEY=os.environ.get("BLOCKONOMICS_KEY")
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = os.getenv("SERVER_EMAIL", "satoshiBlockonomics@gmail.com")
-EMAIL_HOST_PASSWORD = os.getenv("SERVER_EMAIL_PASSWORD", "satoshi1234##")
+EMAIL_HOST_USER = os.environ.get("SERVER_EMAIL") 
+EMAIL_HOST_PASSWORD = os.environ.get("SERVER_EMAIL_PASSWORD")
 EMAIL_PORT = 587
