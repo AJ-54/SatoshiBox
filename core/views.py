@@ -5,7 +5,7 @@ from django.views import generic
 from django.views.generic.detail import SingleObjectMixin
 from hitcount.views import HitCountDetailView
 from django.http.response import Http404, HttpResponse, JsonResponse
-from .blockonomics_utils import create_payment, exchanged_rate
+from .blockonomics_utils import create_payment, exchanged_rate, exchanged_rate_to_usd
 import requests
 import json
 from django.views.decorators.cache import never_cache
@@ -160,6 +160,7 @@ class IntializePayment(generic.View):
         try:
             address = request.session["payment"]["address"]
             expected_value = request.session["payment"]["expected_value"]
+            usd_price = str(exchanged_rate_to_usd(expected_value, "BTC", "USD"))[:6]
             payment = get_object_or_404(
                 Payment, pk=int(request.session["payment"]["payment_id"])
             )
@@ -181,7 +182,8 @@ class IntializePayment(generic.View):
         request.session.modified = True 
         context = {
             "address": address,
-            "expected_value": expected_value,
+            "expected_value": round(expected_value, 8),
+            "usd_price": usd_price,
             "crypto": crypto,
             "last_order": request.session["last_order"],
             "payment_id": payment.id,

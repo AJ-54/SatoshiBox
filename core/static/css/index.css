@@ -1,16 +1,13 @@
 body{
-    background-color: #111f2c;
-    color: white;
+    background-color: #f5f5f5;
+    color: black;
     text-align: center;
-}
-.container{
-    min-height: calc(100vh - 130px);
 }
 
 .file {
     width: 100%;
-    background: #ccc;
-    border: 1px dashed #333;
+    background: #ddd;
+    border: 1px dashed #888;
     position: relative;
     cursor: pointer;
 }
@@ -47,7 +44,11 @@ body{
 }
 
 #file-upload #size,#file-upload #value{
-    color: white;
+    color: #333;
 }
 
+.input-group-text {
+    background-color: #ddd;
+    color: #808080;
+}
 

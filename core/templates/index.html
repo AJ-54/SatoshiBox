@@ -4,41 +4,44 @@
 
 <form class='container col-12 col-sm-8' method="POST" enctype="multipart/form-data" action="{% url 'core:product_create_view' %}">
     {% csrf_token %}
-    <h3 class='mt-4 mb-3'>Sell Files Anonymously and Receive BTC or BCH!</h3>
+    <div class='card px-5 pt-4 pb-3 '> 
+        <h3 class='mt-0 mb-3'>Sell Files Anonymously and Receive BTC or BCH!</h3>
 
-    <div class='row'>
-        <div class='col-12 col-md-8'>
-            <h6 class='text-left'>Product Name</h6>
-            <div class="input-group">
-                <input class="form-control" aria-label="Product Name" name="product_name" placeholder="Product Name" required>
-            </div>
-        </div>
-        <div class='col-12 col-md-4'>
-            <h6 class='text-left'>Price</h6>
-            <div class='input-group'>
-                <div class="input-group-prepend">
-                    <span class="input-group-text">
-                        USD
-                    </span>                    
+        <div class='row'>
+            <div class='col-12 col-md-8'>
+                <h6 class='text-left'>Product Name</h6>
+                <div class="input-group">
+                    <input class="form-control" aria-label="Product Name" name="product_name" placeholder="Product Name" required>
                 </div>
-                <input class='form-control' placeholder="Price" name="price" required>
+            </div>
+            <div class='col-12 col-md-4'>
+                <h6 class='text-left'>Price</h6>
+                <div class='input-group'>
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            USD
+                        </span>                    
+                    </div>
+                    <input class='form-control' placeholder="Price" name="price" required>
+                </div>
             </div>
         </div>
-    </div>
 
-    <h6 class='text-left pt-3'>Product Description</h6>
-    <div class='pb-3'>
-        <textarea rows="4" class='form-control' name="product_description" required
-            placeholder="Product Description"></textarea>
+        <h6 class='text-left pt-3'>Product Description</h6>
+        <div class='pb-3'>
+            <textarea rows="4" class='form-control' name="product_description" required
+                placeholder="Product Description"></textarea>
+        </div>
+        <h6 class='text-left'>Upload Files</h6>
+        <div id='file-upload'>
+            <input class="file p-1 hide-text" type="file" name="files" id="file" multiple required>
+            <p id="value"></p>
+            <p id="size"></p>
+        </div>
+        <button type="submit" id='submitbtn' class='btn mt-3 ml-auto mr-auto'>Start Selling</button>
     </div>
-    <h6 class='text-left'>Upload Files</h6>
-    <div id='file-upload'>
-        <input class="file p-1 hide-text" type="file" name="files" id="file" multiple required>
-        <p id="value"></p>
-        <p id="size"></p>
-    </div>
-    <button type="submit" id='submitbtn' class='btn mt-3'>Start Selling</button>
 </form>
+
 
 {% endblock %}
 {% block js %}

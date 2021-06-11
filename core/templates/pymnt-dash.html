@@ -5,42 +5,44 @@
 
 
 
-<div class='container cnt col-12 col-sm-7'>
-  <h2 class='mb-3'>{{object.product_name}} - Sales Overview</h2>
+<div class='container cnt '>
+  <div class='card mt-4 px-5 col-12 col-md-12 '>
+    <h2 class='mb-3'>{{object.product_name}} - Sales Overview</h2>
 
-  <h5 class='text-left'>Payments</h5>
+    <h5 class='text-left'>Payments</h5>
 
-  <textarea rows="4" class='form-control' readonly>
-    {% for payment in payments %}
-      {{payment.crypto}} - {{payment.received_value}}
-    {% endfor %}
-  </textarea>
+    <textarea rows="4" class='form-control' readonly>
+      {% for payment in payments %}
+        {{payment.crypto}} - {{payment.received_value}}
+      {% endfor %}
+    </textarea>
 
-  <h5 class='text-left mt-3'> Your Product is live at: </h5>
-  <div class="input-group copy-bar">
-    <input type="text" class="form-control" value="{{public_uri}}" placeholder="Some path" id="copy-input" readonly>
-    <button class="btn btn-rounded copy-btn" onclick="copy(event)">
-        <span id="copy-content">Copy to Clipboard</span>
-        <img src="{% static 'svg/copy.png' %}" width=28px height=28px alt="Copy to clipboard">
-    </button>
+    <h5 class='text-left mt-3 '> Your Product is live at: </h5>
+    <div class="input-group copy-bar">
+      <input type="text" class="form-control" value="{{public_uri}}" placeholder="Some path" id="copy-input" readonly>
+      <button class="btn btn-info btn-rounded copy-btn" onclick="copy(event)">
+          <span id="copy-content">Copy to Clipboard</span>
+          <img src="{% static 'svg/copy_white.png' %}" width=28px height=28px alt="Copy to clipboard">
+      </button>
+    </div>
+
+    <div class="row justify-content-center my-2">
+      <div class="form-control col-10 col-md-5 count1 rounded m-2 text-left p-1" readonly>
+        <h5 class='mb-0 text-dark'>Product views: {% get_hit_count for object %}</h5>
+      </div>
+      <div class="form-control col-10 col-md-5 count1 rounded m-2 text-left p-1" readonly>
+        <h5 class='mb-0 text-dark'>BTC Balance: {{btc_balance}}</h5>
+      </div>
+      {% comment %} <div class="col-4 count1">
+        <h5 class='mb-0'>BCH Balance</h5>
+        <span>{{bch_balance}}</span>
+      </div> {% endcomment %}
+    </div>
+    <button type="button" id='submitbtn' class='btn ml-auto mr-auto mb-3'>Withdraw Balance</button>
   </div>
 
-  <div class="row justify-content-center my-2">
-    <div class="form-control col-10 col-md-5 count1 rounded m-2 text-left p-1" readonly>
-      <h5 class='mb-0'>Product views: {% get_hit_count for object %}</h5>
-    </div>
-    <div class="form-control col-10 col-md-5 count1 rounded m-2 text-left p-1" readonly>
-      <h5 class='mb-0'>BTC Balance: {{btc_balance}}</h5>
-    </div>
-    {% comment %} <div class="col-4 count1">
-      <h5 class='mb-0'>BCH Balance</h5>
-      <span>{{bch_balance}}</span>
-    </div> {% endcomment %}
-  </div>
 
 
-
-  <button type="button" id='submitbtn' class='btn'>Withdraw Balance</button>
 
 
 

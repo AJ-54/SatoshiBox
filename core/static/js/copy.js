@@ -14,7 +14,6 @@ function copy(event) {
     while (element.tagName != 'BUTTON') {
         element = element.parentNode;
     }
-    element.style.backgroundColor = "#f0b356";
     tooltip.innerHTML = "Copied to Clipboard";
 }
 

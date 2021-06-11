@@ -1,15 +1,19 @@
 #submitbtn{
     max-width: 400px;
-    border-radius: 12px;
-    background-color: #f0b356;
-    color: black;
-    font-size: 20px !important;
+    background-color: #17a2b8;
+    color: white !important;
+    font-size: 18px !important;
     position: relative;
 }
 
 h6 {
     font-size: 1.15rem;
 }
+
+#copy-content {
+    color: white !important;
+}
+
 
 .hide-text {
     color: transparent;
@@ -29,6 +33,8 @@ h6 {
 .btn-rounded {
     border-radius: 0px 3px 3px 0px !important;
 }
+
+
 
 .pymnt-list {
     background-color: #fff;
@@ -60,6 +66,58 @@ h4 {
     background-color: #fff;
 }
 
+.card-price {
+	display: inline-block;
+  
+  width: auto;
+	height: 38px;
+	
+	background-color: #6ab070;
+	-webkit-border-radius: 3px 4px 4px 3px;
+	-moz-border-radius: 3px 4px 4px 3px;
+	border-radius: 3px 4px 4px 3px;
+	
+	border-left: 1px solid #6ab070;
+
+	/* This makes room for the triangle */
+	margin-left: 19px;
+	
+	position: relative;
+	
+	color: white;
+	font-weight: 300;
+	font-size: 17px;
+	line-height: 38px;
+
+	padding: 0 10px 0 10px;
+}
+
+/* Makes the triangle */
+.card-price:before {
+	content: "";
+	position: absolute;
+	display: block;
+	left: -19px;
+	width: 0;
+	height: 0;
+	border-top: 19px solid transparent;
+	border-bottom: 19px solid transparent;
+	border-right: 19px solid #6ab070;
+}
+
+/* Makes the circle */
+.card-price:after {
+	content: "";
+	background-color: white;
+	border-radius: 50%;
+	width: 4px;
+	height: 4px;
+	display: block;
+	position: absolute;
+	left: -9px;
+	top: 17px;
+}
+
 /* page5 */
 
 .bitadd {
@@ -81,25 +139,29 @@ h4 {
 
 .payment_message {
     font-size: 1.25rem;
-    color: #fff;
+    color: black;
     text-align: center;
 }
 
 .click-to-try-again {
     font-size: 1rem;
-    color: #fff;
+    color: black !important;
     text-align: center;
 }
 
 .timer {
     font-size: 1rem;
-    color: #fff;
+    color: black;
     text-align: center;
 }
 
 .cursor-pointer {
-    cursor: pointer !important;
+    border: rgba(0,0,0,.125) 1px solid;
+}
+
+.payment-border {
     word-wrap: break-word !important;
+    border: rgba(0,0,0,.125) 1px solid;
 }
 
 
