@@ -152,22 +152,21 @@ class IntializePayment(generic.View):
     def get(self, request, *args, **kwargs):
         product = get_object_or_404(Product, uid=kwargs["uid"])
         crypto = request.GET.get("crypto", None)
-        usd_price = 0
         # if crypto not in ["BTC","BCH"]:
         if crypto not in ["BTC"]:
             return HttpResponse("Invalid crypto currency,please use BTC", status=400)
 
-        address, expected_value, payment = None, None, None
+        address, expected_value, payment, usd_price = None, None, None, None
         try:
             address = request.session["payment"]["address"]
             expected_value = request.session["payment"]["expected_value"]
-            usd_price = str(exchanged_rate_to_usd(expected_value, "BTC", "USD"))[:6]
+            usd_price = request.session["payment"]["usd_price"]
             payment = get_object_or_404(
                 Payment, pk=int(request.session["payment"]["payment_id"])
             )
             check_session_validity(request, product)
         except (ValueError, Http404, KeyError) as e:  # invalid session
-            payment, address, expected_value = create_payment_helper(request, product, crypto)
+            payment, address, expected_value, usd_price = create_payment_helper(request, product, crypto, usd_price)
         except requests.exceptions.RequestException as e:  # Exception at blockonomics api
             return HttpResponse(e.response.text)
         except Exception as e:

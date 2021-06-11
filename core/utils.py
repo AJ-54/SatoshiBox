@@ -5,7 +5,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.template import loader
 from django.contrib.sites.shortcuts import get_current_site
 from django.conf import settings
-from .blockonomics_utils import create_payment, exchanged_rate
+from .blockonomics_utils import create_payment, exchanged_rate, exchanged_rate_to_usd
 from .models import Payment
 from datetime import datetime, timedelta
 
@@ -82,10 +82,11 @@ def check_session_validity(request, product):
         raise ValueError("Invalid session value refreshing the sesion")
 
 
-def create_payment_helper(request, product, crypto):
+def create_payment_helper(request, product, crypto, usd_price):
     address, expected_value = create_payment(product, crypto)
+    usd_price = str(exchanged_rate_to_usd(expected_value, "BTC", "USD"))[:6]
     payment = Payment.objects.create(
-        address=address, expected_value=expected_value, crypto=crypto, product=product
+        address=address, expected_value=expected_value, crypto=crypto, product=product, usd_price=usd_price
     )
     request.session["last_order"] = datetime.now().timestamp()
-    return payment, address, expected_value
+    return payment, address, expected_value, usd_price

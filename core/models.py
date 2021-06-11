@@ -82,6 +82,9 @@ class Payment(models.Model):
     expected_value: Optional[float] = models.DecimalField(
         null=True, decimal_places=10, max_digits=100
     )
+    usd_price: Optional[float] = models.DecimalField(
+        null=True, decimal_places=10, max_digits=100
+    )
     received_value: Optional[float] = models.DecimalField(
         blank=True, null=True, decimal_places=10, max_digits=100
     )
