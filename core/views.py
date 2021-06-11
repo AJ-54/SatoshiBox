@@ -152,6 +152,7 @@ class IntializePayment(generic.View):
     def get(self, request, *args, **kwargs):
         product = get_object_or_404(Product, uid=kwargs["uid"])
         crypto = request.GET.get("crypto", None)
+        usd_price = 0
         # if crypto not in ["BTC","BCH"]:
         if crypto not in ["BTC"]:
             return HttpResponse("Invalid crypto currency,please use BTC", status=400)
