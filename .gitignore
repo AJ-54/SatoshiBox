@@ -6,3 +6,4 @@ core/migrations/0009_alter_product_currency.py
 satoshi_box/.env
 core/migrations/0011_alter_product_currency.py
 core/migrations/0010_auto_20210611_2203.py
+satoshi_box_uwsgi.ini
