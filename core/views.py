@@ -140,7 +140,7 @@ class ProductPublicView(HitCountDetailView):
         context["usd_price"] = str(self.object.price)
         context["btc_price"] = str(
             exchanged_rate(self.object.price, "BTC", self.object.currency)
-        )[:6]
+        )[:8]
         # context["bch_price"]=str(exchanged_rate(self.object.price,"BTC",self.object.currency))[:6]
         return context
 
