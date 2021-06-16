@@ -140,7 +140,7 @@ class ProductPublicView(HitCountDetailView):
         context["usd_price"] = str(self.object.price)
         context["btc_price"] = str(
             exchanged_rate(self.object.price, "BTC", self.object.currency)
-        )
+        )[:8]
         # context["bch_price"]=str(exchanged_rate(self.object.price,"BTC",self.object.currency))[:6]
         return context
 
@@ -182,7 +182,7 @@ class IntializePayment(generic.View):
         request.session.modified = True 
         context = {
             "address": address,
-            "expected_value": round(expected_value, 8),
+            "expected_value": expected_value,
             "usd_price": usd_price,
             "crypto": crypto,
             "last_order": request.session["last_order"],
