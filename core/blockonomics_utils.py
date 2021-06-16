@@ -13,7 +13,7 @@ def exchanged_rate(amount, crypto, currency) -> float:
     url = conversion[crypto](currency)
     r = requests.get(url)
     response = r.json()
-    return '%f' % (amount / response["price"])
+    return '{:.8f}'.format(amount / response["price"])
 
 def exchanged_rate_to_usd(amount, crypto, currency) -> float:
     url = conversion[crypto](currency)
