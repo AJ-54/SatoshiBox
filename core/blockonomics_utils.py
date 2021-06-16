@@ -13,13 +13,13 @@ def exchanged_rate(amount, crypto, currency) -> float:
     url = conversion[crypto](currency)
     r = requests.get(url)
     response = r.json()
-    return '{:.8f}'.format(amount / response["price"])
+    return round(pow(10, 8) * amount / response["price"])
 
 def exchanged_rate_to_usd(amount, crypto, currency) -> float:
     url = conversion[crypto](currency)
     r = requests.get(url)
     response = r.json()
-    return float(amount) * response["price"]
+    return round (amount * response["price"], 2)
 
 
 def create_payment(product, crypto):
@@ -27,6 +27,6 @@ def create_payment(product, crypto):
     response = requests.post(url, headers=headers)
     response.raise_for_status()
     address = response.json()["address"]
-    price = exchanged_rate(product.price, crypto, product.currency)
+    price = exchanged_rate(product.price, crypto, product.currency)/pow(10, 8)
 
     return address, price
