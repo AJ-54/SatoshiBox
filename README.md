@@ -6,7 +6,7 @@ SatoshiBox is a tool for those who want to sell files anonymously and receive BT
 ### Requirements:
 Make sure you have [Python](https://www.python.org/downloads/) and [Pip](https://pip.pypa.io/en/latest/installing/#installing-with-get-pip-py) installed. Python version >= 3.6 is required.
 
-You also need Django, and other dependencies These can be installed by running:
+You also need Django, and other dependencies. These can be installed by running:
 
 ```
 pip install -r requirements.txt 
