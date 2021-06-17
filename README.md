@@ -29,7 +29,7 @@ python manage.py runserver 8080
 Hosting and running the project can be good revenue source. Owner of website can earn revenue by charging commision from sellers while withdraw. Various features/enhancement can be added by any developer to differentiate their marketplace. 
 
 #### Funding
-While eventually, the project should be self sustaining, Blockonomics has initial commited to funds of 1000USD in bitcoin to kickstart the development. Funding will be given to merged pull requests classified as following:
+While eventually, the project should be self sustaining, Blockonomics has initially commited to funds of 1000USD in bitcoin to kickstart the development. Funding will be given to merged pull requests classified as following:
 
 - Easy (5-20USD) : Minor changes in UI/styling, few line bug fixes, documentation 
 - Medium (20-100USD): Adding a minor feature that requires 10+ lines of code, substantial frontend functionality
