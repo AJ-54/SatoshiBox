@@ -1,5 +1,6 @@
 let file = document.getElementById('file');
 file.addEventListener('change', function(e) {
+    console.log('changed')
     let val = "";
     let size = 0;
     let limit_exceeded=false;
@@ -10,9 +11,13 @@ file.addEventListener('change', function(e) {
     }
     val = val.slice(0,-2);
     size/=1000000;
+    console.log(size)
     if(size>5){
       file.setCustomValidity('Total size exceeds 5mb');
       file.reportValidity();
+    }
+    else{
+      file.setCustomValidity('');
     }
     document.getElementById('value').innerHTML = "Selected " + val;
     document.getElementById('size').innerHTML = "Total size: " + size + ' MB';
