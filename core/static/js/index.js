@@ -14,6 +14,9 @@ file.addEventListener('change', function(e) {
       file.setCustomValidity('Total size exceeds 5mb');
       file.reportValidity();
     }
+    else{
+      file.setCustomValidity('');
+    }
     document.getElementById('value').innerHTML = "Selected " + val;
     document.getElementById('size').innerHTML = "Total size: " + size + ' MB';
 });
