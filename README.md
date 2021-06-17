@@ -1,9 +1,9 @@
 # SatoshiBox
 
-### Overview:
+### Overview
 SatoshiBox is a tool for those who want to sell files anonymously and receive BTC or BCH.
 
-### Requirements:
+### Requirements
 Make sure you have [Python](https://www.python.org/downloads/) and [Pip](https://pip.pypa.io/en/latest/installing/#installing-with-get-pip-py) installed. Python version >= 3.6 is required.
 
 You also need Django, django-hitcount and bootstrap-py. These can be installed by running:
@@ -25,3 +25,15 @@ Lastly, you can start the server by running:
 ```
 python manage.py runserver 8080
 ```
+### Business Model
+Hosting and running the project can be good revenue source. Owner of website can earn revenue by charging commision from sellers while withdraw. Various features/enhancement can be added by any developer to differentiate their marketplace. 
+
+#### Funding
+While eventually, the project should be self sustaining, Blockonomics has initial commited to funds of 1000USD in bitcoin to kickstart the development. Funding will be given to merged pull requests classified as following:
+
+- Easy (5-20USD) : Minor changes in UI/styling, few line bug fixes, documentation 
+- Medium (20-100USD): Adding a minor feature that requires 10+ lines of code, substantial frontend functionality
+- Hard (100-250USD): A new feature that noticeably increases the project functionality, major refactoring / new UI components 
+
+### BitcoinTalk Discussion Thread
+https://bitcointalk.org/index.php?topic=5343726.0    
