@@ -1,7 +1,7 @@
 # SatoshiBox
 
 ### Overview
-SatoshiBox is a tool for those who want to sell files anonymously and receive BTC or BCH.
+Website/marketplace to sell files anonymously and receive BTC or BCH.
 
 ### Requirements
 Make sure you have [Python](https://www.python.org/downloads/) and [Pip](https://pip.pypa.io/en/latest/installing/#installing-with-get-pip-py) installed. Python version >= 3.6 is required.
