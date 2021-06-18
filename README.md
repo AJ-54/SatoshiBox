@@ -1,5 +1,3 @@
-# SatoshiBox
-
 ### Overview
 Website/marketplace to sell files anonymously and receive BTC or BCH.
 
