@@ -40,11 +40,11 @@
                     {% endif %}
                     <button class="btn btn-rounded" type="submit" id="submitbtn">Send mail</button>
                 </form>
-                {% for error in errors %}
+                {% if errors %}
                     <div class="alert alert-danger">
                         <strong>{{ errors|escape }}</strong>
                     </div>
-                {% endfor %}
+                {% endif %}
             </div>
 
             {% comment %} <button class="go-live" type="submit" id='submitbtn' class='btn'><a style="text-decoration:none;color:black;"
