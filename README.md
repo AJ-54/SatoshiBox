@@ -9,7 +9,9 @@ You also need Django, and other dependencies. These can be installed by running:
 ```
 pip install -r requirements.txt 
 ```
-After you have installed the packages mentioned above update the `SECRET_KEY` [here](https://github.com/cnohall/SatoshiBox/blob/master/satoshi_box/settings.py#L28) and the `BLOCKONOMICS_KEY`, `EMAIL_HOST_USER`, `EMAIL_HOST_PASSWORD` [here](https://github.com/cnohall/SatoshiBox/blob/master/satoshi_box/settings.py#L130-L135), with your own values. If you haven't yet set up [Blockonomics Xpub merchant](https://www.blockonomics.co/merchants#/) value, please set it up first. It is recommended that you do so by specifying your own `.env` file. 
+After you have installed the packages mentioned above, update the `SECRET_KEY` [here](https://github.com/cnohall/SatoshiBox/blob/master/satoshi_box/settings.py#L28). The [Secret Key](https://docs.djangoproject.com/en/dev/ref/settings/#secret-key) is required to sign the app, Django will refuse to start if `SECRET_KEY` is not set. This [website](https://miniwebtool.com/django-secret-key-generator/) can be used to generate a unique `SECRET_KEY`. 
+
+The `BLOCKONOMICS_API_KEY`, `EMAIL_HOST_USER`, and `EMAIL_HOST_PASSWORD` should be specified [here](https://github.com/cnohall/SatoshiBox/blob/master/satoshi_box/settings.py#L130-L135), with your own values. If you do not have a `BLOCKONOMICS_API_KEY`, you can obtain one by signing up [here](https://www.blockonomics.co/register#/). 
 
 After you have defined the variables mentioned above, nativate to your FileShop folder with your terminal and run:
 ```
