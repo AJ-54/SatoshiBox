@@ -127,7 +127,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
-BLOCKONOMICS_KEY=os.environ.get("BLOCKONOMICS_KEY")
+BLOCKONOMICS_API_KEY=os.environ.get("BLOCKONOMICS_API_KEY")
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'

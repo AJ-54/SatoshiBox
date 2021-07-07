@@ -5,7 +5,7 @@ from django.conf import settings
 
 
 base_url = "https://www.blockonomics.co/api"
-headers = {"Authorization": "Bearer " + settings.BLOCKONOMICS_KEY}
+headers = {"Authorization": "Bearer " + settings.BLOCKONOMICS_API_KEY}
 conversion = {"BTC": lambda currency: f"{base_url}/price?currency={currency}"}
 
 
