@@ -35,11 +35,16 @@
                     <input type="email" class="form-control rounded-left" aria-label="Recipient's email" aria-describedby="button-addon2"
                         name="email" required value="{{object.email}}">
                     {% else %}
-                    <input type="text" class="form-control rounded-left" aria-label="Recipient's email" placeholder="username@example.com"
+                    <input type="email" class="form-control rounded-left" aria-label="Recipient's email" placeholder="username@example.com"
                         aria-describedby="button-addon2" name="email" required>
                     {% endif %}
                     <button class="btn btn-rounded" type="submit" id="submitbtn">Send mail</button>
                 </form>
+                {% if errors %}
+                    <div class="alert alert-danger">
+                        <strong>{{ errors|escape }}</strong>
+                    </div>
+                {% endif %}
             </div>
 
             {% comment %} <button class="go-live" type="submit" id='submitbtn' class='btn'><a style="text-decoration:none;color:black;"

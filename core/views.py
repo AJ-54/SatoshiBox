@@ -72,14 +72,17 @@ class ProductEmailUpdatesView(generic.View):
     def post(self, request, *args, **kwargs):
         product = self.get_object(**kwargs)
         product_form = self.form_class(request.POST, instance=product)
+        context = self.get_context_data(**kwargs)
+        
         if product_form.is_valid():
             product_form.save()
         else:
+            context["errors"] = product_form.errors
             return render(
-                request, self.template_name, context={"errors": product_form.errors}
+                request, self.template_name, context=context
             )
 
-        context = self.get_context_data(**kwargs)
+        
         self.extra_email_context["track_uri"] = self.request.build_absolute_uri(
             reverse("core:product_info_seller", kwargs={"token": product.token})
         )
