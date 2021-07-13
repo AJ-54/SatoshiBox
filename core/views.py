@@ -13,6 +13,8 @@ from django.utils.decorators import method_decorator
 from .utils import zipFiles, email_helper, create_payment_helper, check_session_validity
 from django.db.models import Prefetch
 from datetime import datetime, timedelta
+import uuid
+from uuid import UUID
 
 # Create your views here.
 
@@ -143,6 +145,9 @@ class ProductPublicView(HitCountDetailView):
         context["usd_price"] = str(self.object.price)
         context["bits"] = exchanged_rate(self.object.price, "BTC", self.object.currency)
         context["btc_price"] = context["bits"]/pow(10, 8)
+        product = get_object_or_404(Product, uid=self.kwargs.get("uid"))
+        payment, address, expected_value, usd_price = create_payment_helper(self.request, product, "BTC", self.object.price)
+        context["order_id"] = payment.order_id
         # context["bch_price"]=str(exchanged_rate(self.object.price,"BTC",self.object.currency))[:6]
         return context
 
@@ -160,15 +165,15 @@ class IntializePayment(generic.View):
 
         address, expected_value, payment, usd_price = None, None, None, None
         try:
-            address = request.session["payment"]["address"]
-            expected_value = request.session["payment"]["expected_value"]
-            usd_price = request.session["payment"]["usd_price"]
-            payment = get_object_or_404(
-                Payment, pk=int(request.session["payment"]["payment_id"])
-            )
-            check_session_validity(request, product)
+            payment = get_object_or_404(Payment, order_id=kwargs["order_id"])
+            address = payment.address
+            expected_value = float(payment.expected_value)
+            usd_price = float(payment.usd_price)
+            request.session["last_order"] = datetime.now().timestamp()
+            # check_session_validity(request, product)
         except (ValueError, Http404, KeyError) as e:  # invalid session
-            payment, address, expected_value, usd_price = create_payment_helper(request, product, crypto, usd_price)
+            print('hello')
+            # payment, address, expected_value, usd_price = create_payment_helper(request, product, crypto, usd_price)
         except requests.exceptions.RequestException as e:  # Exception at blockonomics api
             return HttpResponse(e.response.text)
         except Exception as e:

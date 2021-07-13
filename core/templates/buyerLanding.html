@@ -14,10 +14,10 @@
       <p class="card-text">{{object.product_description}}</p>
       <div class='row mt-3 mx-0'>
       <p class="card-price my-0">{{btc_price}} BTC ≈ {{usd_price}} USD</p>
-      <button type="submit" id='submitbtn' class="btn ml-auto"><a href="{% url 'core:product_pay_buyer' object.uid%}?crypto=BTC"
+      <button type="submit" id='submitbtn' class="btn ml-auto"><a href="{% url 'core:product_pay_buyer' object.uid order_id%}?crypto=BTC"
         style="text-decoration:none;color:white;">I want this! </a></button>
         {% comment %} <button type="submit" id='submitbtn' class="btn"><a
-        href="{% url 'core:product_pay_buyer' object.uid%}?crypto=BCH" style="text-decoration:none;color:black;">Buy
+        href="{% url 'core:product_pay_buyer' object.uid order_id%}?crypto=BCH" style="text-decoration:none;color:black;">Buy
         in BCH -
         {{bch_price}}</a></button>
       </div>
