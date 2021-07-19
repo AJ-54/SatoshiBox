@@ -1,7 +1,6 @@
 import zipfile
 import io
 import os
-from django.shortcuts import get_object_or_404
 from django.core.mail import EmailMultiAlternatives
 from django.template import loader
 from django.contrib.sites.shortcuts import get_current_site
@@ -85,9 +84,6 @@ def check_session_validity(request, product):
 
 def create_payment_helper(request, product, crypto, usd_price):
     address, expected_value = create_payment(product, crypto)
-    payment = Payment.objects.create(
-        address=address, expected_value=expected_value, crypto=crypto, product=product, usd_price=usd_price
-    )
     usd_price = exchanged_rate_to_usd(expected_value, "BTC", "USD")
     payment = Payment.objects.create(
         address=address, expected_value=expected_value, crypto=crypto, product=product, usd_price=usd_price
