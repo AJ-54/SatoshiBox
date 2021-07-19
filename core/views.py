@@ -13,8 +13,6 @@ from django.utils.decorators import method_decorator
 from .utils import zipFiles, email_helper, create_payment_helper, check_session_validity
 from django.db.models import Prefetch
 from datetime import datetime, timedelta
-import uuid
-from uuid import UUID
 
 # Create your views here.
 
@@ -170,10 +168,8 @@ class IntializePayment(generic.View):
             expected_value = float(payment.expected_value)
             usd_price = float(payment.usd_price)
             request.session["last_order"] = datetime.now().timestamp()
-            # check_session_validity(request, product)
         except (ValueError, Http404, KeyError) as e:  # invalid session
-            print('hello')
-            # payment, address, expected_value, usd_price = create_payment_helper(request, product, crypto, usd_price)
+            return HttpResponse(e.response.text)
         except requests.exceptions.RequestException as e:  # Exception at blockonomics api
             return HttpResponse(e.response.text)
         except Exception as e:
