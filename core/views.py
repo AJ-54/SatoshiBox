@@ -144,7 +144,7 @@ class ProductPublicView(HitCountDetailView):
         context["bits"] = exchanged_rate(self.object.price, "BTC", self.object.currency)
         context["btc_price"] = context["bits"]/pow(10, 8)
         product = get_object_or_404(Product, uid=self.kwargs.get("uid"))
-        payment, address, expected_value, usd_price = create_payment_helper(self.request, product, "BTC", self.object.price)
+        payment = create_payment_helper(self.request, product, "BTC", self.object.price)
         context["order_id"] = payment.order_id
         # context["bch_price"]=str(exchanged_rate(self.object.price,"BTC",self.object.currency))[:6]
         return context
@@ -155,7 +155,7 @@ class IntializePayment(generic.View):
 
     @method_decorator(never_cache)
     def get(self, request, *args, **kwargs):
-        product = get_object_or_404(Product, uid=kwargs["uid"])
+        # product = get_object_or_404(Product, uid=kwargs["uid"])
         crypto = request.GET.get("crypto", None)
         # if crypto not in ["BTC","BCH"]:
         if crypto not in ["BTC"]:
@@ -164,6 +164,7 @@ class IntializePayment(generic.View):
         address, expected_value, payment, usd_price = None, None, None, None
         try:
             payment = get_object_or_404(Payment, order_id=kwargs["order_id"])
+            product = payment.product
             address = payment.address
             expected_value = float(payment.expected_value)
             usd_price = float(payment.usd_price)

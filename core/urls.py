@@ -20,7 +20,7 @@ urlpatterns = [
         name="product_info_buyer",
     ),
     re_path(
-        r"^(?P<uid>[0-9a-f-]+)&order_id=(?P<order_id>\w+)/$",
+        r"^checkout/(?P<order_id>\w+)$",
         views.IntializePayment.as_view(),
         name="product_pay_buyer",
     ),
