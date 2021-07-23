@@ -4,9 +4,11 @@ var socket = new WebSocket("wss://www.blockonomics.co/payment/"+ address);
 
 const paymentStatusUpdate = (status)=>{
   (async()=>{
+    const websiteUrl = settings.WEBSITE_URL || "http://127.0.0.1:8000";
+    console.log(websiteUrl);
     let payment_id=data["payment_id"];
     try{
-    const response = await fetch("http://127.0.0.1:8000"+data.url,{
+    const response = await fetch(websiteUrl + data.url,{
       "method":"POST",
       "body":JSON.stringify({status,payment_id}),
       "headers": {
