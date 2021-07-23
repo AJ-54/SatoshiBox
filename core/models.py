@@ -20,8 +20,8 @@ class Product(models.Model):
     product_name: Optional[str] = models.CharField(
         max_length=255, blank=True, null=True
     )
-    product_description: Optional[str] = models.TextField(max_length=255, null=True)
-    secret_description: Optional[str] = models.TextField(max_length=255, null=True)
+    product_description: Optional[str] = models.TextField(max_length=1023, null=True)
+    secret_description: Optional[str] = models.TextField(max_length=1023, null=True)
     price: float = models.FloatField(default=0)
     currency: str = models.CharField(
         max_length=3, choices=CURRENCY_CHOICES, default="USD"
