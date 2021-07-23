@@ -4,7 +4,7 @@ var socket = new WebSocket("wss://www.blockonomics.co/payment/"+ address);
 
 const paymentStatusUpdate = (status)=>{
   (async()=>{
-    const websiteUrl = "http://fileshop/online"; //Change this for your website
+    const websiteUrl = "http://fileshop.online"; //Change this for your website
     let payment_id=data["payment_id"];
     try{
     const response = await fetch(websiteUrl + data.url,{
